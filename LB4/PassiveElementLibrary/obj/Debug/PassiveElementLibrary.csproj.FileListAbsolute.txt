@@ -1,0 +1,23 @@
+C:\Users\Acer\source\repos\PassiveElementLibrary\bin\Debug\PassiveElementLibrary.dll
+C:\Users\Acer\source\repos\PassiveElementLibrary\bin\Debug\PassiveElementLibrary.pdb
+C:\Users\Acer\source\repos\PassiveElementLibrary\obj\Debug\PassiveElementLibrary.csprojAssemblyReference.cache
+C:\Users\Acer\source\repos\PassiveElementLibrary\obj\Debug\PassiveElementLibrary.dll
+C:\Users\Acer\source\repos\PassiveElementLibrary\obj\Debug\PassiveElementLibrary.pdb
+C:\Users\Acer\source\repos\PassiveElementLibrary — копия\bin\Debug\PassiveElementLibrary.dll
+C:\Users\Acer\source\repos\PassiveElementLibrary — копия\bin\Debug\PassiveElementLibrary.pdb
+C:\Users\Acer\source\repos\PassiveElementLibrary — копия\obj\Debug\PassiveElementLibrary.dll
+C:\Users\Acer\source\repos\PassiveElementLibrary — копия\obj\Debug\PassiveElementLibrary.pdb
+C:\Users\Acer\Desktop\лб 4\bin\Debug\PassiveElementLibrary.dll
+C:\Users\Acer\Desktop\лб 4\bin\Debug\PassiveElementLibrary.pdb
+C:\Users\Acer\Desktop\лб 4\obj\Debug\PassiveElementLibrary.dll
+C:\Users\Acer\Desktop\лб 4\obj\Debug\PassiveElementLibrary.pdb
+C:\Users\Acer\Desktop\лб 4\obj\Debug\PassiveElementLibrary.csprojAssemblyReference.cache
+C:\Users\Acer\Desktop\еtry2\bin\Debug\PassiveElementLibrary.dll
+C:\Users\Acer\Desktop\еtry2\bin\Debug\PassiveElementLibrary.pdb
+C:\Users\Acer\Desktop\еtry2\obj\Debug\PassiveElementLibrary.dll
+C:\Users\Acer\Desktop\еtry2\obj\Debug\PassiveElementLibrary.pdb
+C:\Users\Acer\Desktop\еtry2\PassiveElementLibrary\bin\Debug\PassiveElementLibrary.dll
+C:\Users\Acer\Desktop\еtry2\PassiveElementLibrary\bin\Debug\PassiveElementLibrary.pdb
+C:\Users\Acer\Desktop\еtry2\PassiveElementLibrary\obj\Debug\PassiveElementLibrary.csprojAssemblyReference.cache
+C:\Users\Acer\Desktop\еtry2\PassiveElementLibrary\obj\Debug\PassiveElementLibrary.dll
+C:\Users\Acer\Desktop\еtry2\PassiveElementLibrary\obj\Debug\PassiveElementLibrary.pdb

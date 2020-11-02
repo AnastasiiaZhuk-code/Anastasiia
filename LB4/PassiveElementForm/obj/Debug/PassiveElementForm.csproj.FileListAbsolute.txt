@@ -24,3 +24,16 @@ C:\Users\Acer\Desktop\еtry2\PassiveElementForm\obj\Debug\PassiveElementForm.csp
 C:\Users\Acer\Desktop\еtry2\PassiveElementForm\obj\Debug\PassiveElementForm.csproj.CopyComplete
 C:\Users\Acer\Desktop\еtry2\PassiveElementForm\obj\Debug\PassiveElementForm.exe
 C:\Users\Acer\Desktop\еtry2\PassiveElementForm\obj\Debug\PassiveElementForm.pdb
+C:\Users\Acer\Documents\GitHub\Anastasiia\LB4\PassiveElementForm\bin\Debug\PassiveElementForm.exe.config
+C:\Users\Acer\Documents\GitHub\Anastasiia\LB4\PassiveElementForm\bin\Debug\PassiveElementForm.exe
+C:\Users\Acer\Documents\GitHub\Anastasiia\LB4\PassiveElementForm\bin\Debug\PassiveElementForm.pdb
+C:\Users\Acer\Documents\GitHub\Anastasiia\LB4\PassiveElementForm\bin\Debug\PassiveElementLibrary.dll
+C:\Users\Acer\Documents\GitHub\Anastasiia\LB4\PassiveElementForm\bin\Debug\PassiveElementLibrary.pdb
+C:\Users\Acer\Documents\GitHub\Anastasiia\LB4\PassiveElementForm\obj\Debug\PassiveElementForm.csprojAssemblyReference.cache
+C:\Users\Acer\Documents\GitHub\Anastasiia\LB4\PassiveElementForm\obj\Debug\PassiveElementForm.AddPassiveElementForm.resources
+C:\Users\Acer\Documents\GitHub\Anastasiia\LB4\PassiveElementForm\obj\Debug\PassiveElementForm.MainForm.resources
+C:\Users\Acer\Documents\GitHub\Anastasiia\LB4\PassiveElementForm\obj\Debug\PassiveElementForm.Properties.Resources.resources
+C:\Users\Acer\Documents\GitHub\Anastasiia\LB4\PassiveElementForm\obj\Debug\PassiveElementForm.csproj.GenerateResource.cache
+C:\Users\Acer\Documents\GitHub\Anastasiia\LB4\PassiveElementForm\obj\Debug\PassiveElementForm.csproj.CopyComplete
+C:\Users\Acer\Documents\GitHub\Anastasiia\LB4\PassiveElementForm\obj\Debug\PassiveElementForm.exe
+C:\Users\Acer\Documents\GitHub\Anastasiia\LB4\PassiveElementForm\obj\Debug\PassiveElementForm.pdb

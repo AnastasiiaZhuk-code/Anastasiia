@@ -38,7 +38,7 @@
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataPassiveElementView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,28 +138,28 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Вид элемента";
             // 
-            // listBox1
+            // comboBox1
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Items.AddRange(new object[] {
-            "Конденсатор",
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
             "Индуктивность",
+            "Конденсатор",
             "Резистор"});
-            this.listBox1.Location = new System.Drawing.Point(121, 26);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(140, 20);
-            this.listBox1.TabIndex = 7;
+            this.comboBox1.Location = new System.Drawing.Point(119, 22);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 11;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(663, 405);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.searchTextBox);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.GetRandomPassiveElementButton);
             this.Controls.Add(this.SearchPassiveElementButton);
             this.Controls.Add(this.LoadPassiveElementButton);
@@ -188,7 +188,7 @@
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

@@ -31,10 +31,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.rangeOfTypesPassiveElementsComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.PassiveElementParameter1_textBox = new System.Windows.Forms.TextBox();
-            this.PassiveElementParameter2_textBox = new System.Windows.Forms.TextBox();
-            this.PassiveElementParameter1 = new System.Windows.Forms.Label();
             this.PassiveElementParameter2 = new System.Windows.Forms.Label();
+            this.PassiveElementParameter1 = new System.Windows.Forms.Label();
+            this.PassiveElementParameter2_textBox = new System.Windows.Forms.TextBox();
+            this.PassiveElementParameter1_textBox = new System.Windows.Forms.TextBox();
             this.CancelButton = new System.Windows.Forms.Button();
             this.AddPassiveElementButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -51,6 +51,7 @@
             // 
             // rangeOfTypesPassiveElementsComboBox
             // 
+            this.rangeOfTypesPassiveElementsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.rangeOfTypesPassiveElementsComboBox.FormattingEnabled = true;
             this.rangeOfTypesPassiveElementsComboBox.Items.AddRange(new object[] {
             "Индуктивность",
@@ -75,19 +76,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Введите параметры элемента";
             // 
-            // PassiveElementParameter1_textBox
+            // PassiveElementParameter2
             // 
-            this.PassiveElementParameter1_textBox.Location = new System.Drawing.Point(264, 33);
-            this.PassiveElementParameter1_textBox.Name = "PassiveElementParameter1_textBox";
-            this.PassiveElementParameter1_textBox.Size = new System.Drawing.Size(121, 22);
-            this.PassiveElementParameter1_textBox.TabIndex = 0;
-            // 
-            // PassiveElementParameter2_textBox
-            // 
-            this.PassiveElementParameter2_textBox.Location = new System.Drawing.Point(264, 80);
-            this.PassiveElementParameter2_textBox.Name = "PassiveElementParameter2_textBox";
-            this.PassiveElementParameter2_textBox.Size = new System.Drawing.Size(121, 22);
-            this.PassiveElementParameter2_textBox.TabIndex = 1;
+            this.PassiveElementParameter2.AutoSize = true;
+            this.PassiveElementParameter2.Location = new System.Drawing.Point(7, 85);
+            this.PassiveElementParameter2.Name = "PassiveElementParameter2";
+            this.PassiveElementParameter2.Size = new System.Drawing.Size(46, 17);
+            this.PassiveElementParameter2.TabIndex = 3;
+            this.PassiveElementParameter2.Text = "label3";
             // 
             // PassiveElementParameter1
             // 
@@ -98,14 +94,19 @@
             this.PassiveElementParameter1.TabIndex = 2;
             this.PassiveElementParameter1.Text = "label2";
             // 
-            // PassiveElementParameter2
+            // PassiveElementParameter2_textBox
             // 
-            this.PassiveElementParameter2.AutoSize = true;
-            this.PassiveElementParameter2.Location = new System.Drawing.Point(7, 85);
-            this.PassiveElementParameter2.Name = "PassiveElementParameter2";
-            this.PassiveElementParameter2.Size = new System.Drawing.Size(46, 17);
-            this.PassiveElementParameter2.TabIndex = 3;
-            this.PassiveElementParameter2.Text = "label3";
+            this.PassiveElementParameter2_textBox.Location = new System.Drawing.Point(264, 80);
+            this.PassiveElementParameter2_textBox.Name = "PassiveElementParameter2_textBox";
+            this.PassiveElementParameter2_textBox.Size = new System.Drawing.Size(121, 22);
+            this.PassiveElementParameter2_textBox.TabIndex = 1;
+            // 
+            // PassiveElementParameter1_textBox
+            // 
+            this.PassiveElementParameter1_textBox.Location = new System.Drawing.Point(264, 33);
+            this.PassiveElementParameter1_textBox.Name = "PassiveElementParameter1_textBox";
+            this.PassiveElementParameter1_textBox.Size = new System.Drawing.Size(121, 22);
+            this.PassiveElementParameter1_textBox.TabIndex = 0;
             // 
             // CancelButton
             // 

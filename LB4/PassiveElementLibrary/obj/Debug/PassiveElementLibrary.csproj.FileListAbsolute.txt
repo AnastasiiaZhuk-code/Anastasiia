@@ -21,3 +21,8 @@ C:\Users\Acer\Desktop\еtry2\PassiveElementLibrary\bin\Debug\PassiveElementLibra
 C:\Users\Acer\Desktop\еtry2\PassiveElementLibrary\obj\Debug\PassiveElementLibrary.csprojAssemblyReference.cache
 C:\Users\Acer\Desktop\еtry2\PassiveElementLibrary\obj\Debug\PassiveElementLibrary.dll
 C:\Users\Acer\Desktop\еtry2\PassiveElementLibrary\obj\Debug\PassiveElementLibrary.pdb
+C:\Users\Acer\Documents\GitHub\Anastasiia\LB4\PassiveElementLibrary\bin\Debug\PassiveElementLibrary.dll
+C:\Users\Acer\Documents\GitHub\Anastasiia\LB4\PassiveElementLibrary\bin\Debug\PassiveElementLibrary.pdb
+C:\Users\Acer\Documents\GitHub\Anastasiia\LB4\PassiveElementLibrary\obj\Debug\PassiveElementLibrary.csprojAssemblyReference.cache
+C:\Users\Acer\Documents\GitHub\Anastasiia\LB4\PassiveElementLibrary\obj\Debug\PassiveElementLibrary.dll
+C:\Users\Acer\Documents\GitHub\Anastasiia\LB4\PassiveElementLibrary\obj\Debug\PassiveElementLibrary.pdb

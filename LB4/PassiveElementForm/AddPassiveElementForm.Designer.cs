@@ -84,6 +84,7 @@
             this.PassiveElementParameter2.Size = new System.Drawing.Size(46, 17);
             this.PassiveElementParameter2.TabIndex = 3;
             this.PassiveElementParameter2.Text = "label3";
+            this.PassiveElementParameter2.Visible = false;
             // 
             // PassiveElementParameter1
             // 
@@ -93,6 +94,7 @@
             this.PassiveElementParameter1.Size = new System.Drawing.Size(46, 17);
             this.PassiveElementParameter1.TabIndex = 2;
             this.PassiveElementParameter1.Text = "label2";
+            this.PassiveElementParameter1.Visible = false;
             // 
             // PassiveElementParameter2_textBox
             // 
@@ -100,6 +102,7 @@
             this.PassiveElementParameter2_textBox.Name = "PassiveElementParameter2_textBox";
             this.PassiveElementParameter2_textBox.Size = new System.Drawing.Size(121, 22);
             this.PassiveElementParameter2_textBox.TabIndex = 1;
+            this.PassiveElementParameter2_textBox.Visible = false;
             // 
             // PassiveElementParameter1_textBox
             // 
@@ -107,6 +110,7 @@
             this.PassiveElementParameter1_textBox.Name = "PassiveElementParameter1_textBox";
             this.PassiveElementParameter1_textBox.Size = new System.Drawing.Size(121, 22);
             this.PassiveElementParameter1_textBox.TabIndex = 0;
+            this.PassiveElementParameter1_textBox.Visible = false;
             // 
             // CancelButton
             // 
@@ -137,7 +141,11 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.rangeOfTypesPassiveElementsComboBox);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddPassiveElementForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавить пассивный элемент";
             this.Load += new System.EventHandler(this.AddPassiveElementForm_Load);
             this.groupBox1.ResumeLayout(false);

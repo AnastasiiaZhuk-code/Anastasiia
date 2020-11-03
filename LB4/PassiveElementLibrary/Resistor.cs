@@ -10,6 +10,7 @@ namespace PassiveElementLibrary
     /// <summary>
     /// Резистор
     /// </summary>
+    [Serializable]
     public class Resistor : PassiveElementBase
     {
 

@@ -10,6 +10,7 @@ namespace PassiveElementLibrary
     /// <summary>
     /// Пассивный элемент
     /// </summary>
+    [Serializable]
     public abstract class PassiveElementBase
     {
 

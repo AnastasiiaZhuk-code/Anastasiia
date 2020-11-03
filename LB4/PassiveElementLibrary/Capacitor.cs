@@ -10,6 +10,7 @@ namespace PassiveElementLibrary
     /// <summary>
     /// Конденсатор
     /// </summary>
+    [Serializable]
     public class Capacitor : PassiveElementBase
     {
 

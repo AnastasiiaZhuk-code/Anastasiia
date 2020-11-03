@@ -10,6 +10,7 @@ namespace PassiveElementLibrary
     /// <summary>
     /// Индуктивный элемент
     /// </summary>
+    [Serializable]
     public class Inductor : PassiveElementBase
     {
 

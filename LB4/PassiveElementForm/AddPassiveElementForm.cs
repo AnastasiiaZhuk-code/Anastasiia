@@ -31,11 +31,6 @@ namespace PassiveElementForm
         private PassiveElementBase _passiveElement;
 
         /// <summary>
-        /// Лист сообщений и исключений
-        /// </summary>
-        private List<string> _exceptionMessagesList;
-
-        /// <summary>
         /// Флаг для внесения данных и закрытия формы
         /// </summary>
         private bool _isCorrect;
@@ -49,11 +44,6 @@ namespace PassiveElementForm
             {
                 return _passiveElement;
             }
-        }
-
-        private void AddPassiveElementForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         /// <summary>
@@ -72,7 +62,8 @@ namespace PassiveElementForm
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void rangeOfTypesPassiveElementsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void rangeOfTypesPassiveElementsComboBox_SelectedIndexChanged(
+            object sender, EventArgs e)
         {
             string typeOfPassiveElement = 
                 rangeOfTypesPassiveElementsComboBox.SelectedItem.ToString();
@@ -129,7 +120,8 @@ namespace PassiveElementForm
                 if (exception is ArgumentException ||
                     exception is FormatException)
                 {
-                    _exceptionMessagesList.Add(exception.Message);
+
+                    MessageBox.Show(exception.Message);
                 }
                 else
                 {
@@ -139,15 +131,91 @@ namespace PassiveElementForm
         }
 
         /// <summary>
-        /// Преобразование string в double, 
-        /// и замена точки на запятую в строке
+        /// Вводит данные о новом индуктивном элементе
+        /// </summary>
+        /// <returns></returns>
+        private Inductor GetNewInductor()
+        {
+            var newInductor = new Inductor();
+            var actions = new List<Action>()
+            {
+                new Action(() =>
+                {
+                    ReadAndParse(
+                        PassiveElementParameter1_textBox.Text,
+                        out double frecuency);
+                    newInductor.Frecuency = frecuency;
+                }),
+                new Action(() =>
+                {
+                    ReadAndParse(
+                        PassiveElementParameter2_textBox.Text,
+                        out double inductance);
+                    newInductor.Inductance = inductance;
+                })
+            };
+            actions.ForEach(SetValue);
+            return newInductor;
+        }
+
+        /// <summary>
+        /// Вводит данные о новом конденсаторе
+        /// </summary>
+        /// <returns></returns>
+        private Capacitor GetNewCapacitor()
+        {
+            var newCapacitor = new Capacitor();
+            var actions = new List<Action>()
+            {
+                new Action(() =>
+                {
+                    ReadAndParse(
+                        PassiveElementParameter1_textBox.Text,
+                        out double frecuency);
+                    newCapacitor.Frecuency = frecuency;
+                }),
+                new Action(() =>
+                {
+                    ReadAndParse(
+                        PassiveElementParameter2_textBox.Text,
+                        out double capacity);
+                    newCapacitor.Сapacity = capacity;
+                })
+            };
+            actions.ForEach(SetValue);
+            return newCapacitor;
+        }
+
+        /// <summary>
+        /// Вводит данные о новом резисторе
+        /// </summary>
+        /// <returns></returns>
+        private Resistor GetNewResistor()
+        {
+            var newResistor = new Resistor();
+            var actions = new List<Action>()
+            {
+                new Action(() =>
+                {
+                    ReadAndParse(
+                        PassiveElementParameter1_textBox.Text,
+                        out double resistance);
+                    newResistor.Resistance = resistance;
+                })
+            };
+            actions.ForEach(SetValue);
+            return newResistor;
+        }
+
+        /// <summary>
+        /// Преобразование string в double
         /// </summary>
         /// <param name="textValue">Преобразуемая строка</param>
         /// <param name="doubleValue">Преобразованная строка к типу double</param>
         /// <param name="textBoxName">Имя TextBox</param>
         /// <returns>Строку, преобразованную к типу double</returns>
-        private double TryConvertingToDouble(string textValue,
-            out double doubleValue, string textBoxName)
+        private double ReadAndParse(string textValue,
+            out double doubleValue)
         {
             var isParseOK = double.TryParse(textValue.Replace(',', '.'),
                 NumberStyles.Float, CultureInfo.InvariantCulture, out _);
@@ -159,10 +227,63 @@ namespace PassiveElementForm
             else
             {
                 throw new FormatException("\nВведено не число!" +
-                    "Попробуйте снова\n" +
-                    "\nОшибка в: " + textBoxName + "\n");
+                    "Попробуйте снова\n");
             }
         }
 
+        /// <summary>
+        /// Ввод данных о пассивном элементе
+        /// </summary>
+        private void InputData()
+        {
+            _isCorrect = true;
+
+            switch (_passiveElement)
+            {
+                case Inductor _:
+                {
+                    _passiveElement = GetNewInductor();
+                    break;
+                }
+                case Capacitor _:
+                {
+                    _passiveElement = GetNewCapacitor();
+                    break;
+                }
+                case Resistor _:
+                {
+                    _passiveElement = GetNewResistor();
+                    break;
+                }
+                default:
+                {
+                    throw new ArgumentException("Выберите вид" +
+                        " пассивного элемента");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Добавление нового пассивного элемента
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddPassiveElementButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                InputData();
+
+                if (_isCorrect)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    Close();
+                }
+            }
+            catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
     }
 }

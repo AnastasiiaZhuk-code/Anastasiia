@@ -33,6 +33,13 @@ namespace PassiveElementForm
             _passiveElements = new BindingList<PassiveElementBase>();
 
         /// <summary>
+        /// Список с найденными пассивными элементами
+        /// </summary>
+        private BindingList<PassiveElementBase> 
+            _passiveElementsSearch =
+            new BindingList<PassiveElementBase>();
+
+        /// <summary>
         /// Событие при загрузке формы
         /// </summary>
         /// <param name="sender"></param>
@@ -129,10 +136,10 @@ namespace PassiveElementForm
 
                             foreach (var passiveElement in newPassiveElements)
                             {
-                                _passiveElements.Add(passiveElement);
-                                MessageBox.Show("Файл сохранен успешно.");
+                                _passiveElements.Add(passiveElement);                                
                             }
                         }
+                        MessageBox.Show("Файл загружен успешно.");
                     }
 
                     catch (Exception exception)
@@ -180,10 +187,69 @@ namespace PassiveElementForm
                 DataGridViewSelectionMode.FullRowSelect;
         }
 
+        /// <summary>
+        /// Поиск пассивного элемента
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchPassiveElementButton_Click(object sender, EventArgs e)
         {
-            //searchTextBox
-            
+            Search();
+        }
+
+        /// <summary>
+        /// Ищет необходимый пассивный элемент в листе
+        /// </summary>
+        private void Search()
+        {
+            _passiveElementsSearch.Clear();
+
+            CreateView(
+                _passiveElementsSearch, dataPassiveElementView);
+
+            try
+            {
+                if (comboBox1.CanFocus)
+                {
+                    foreach (var row in _passiveElements)
+                    {
+                        if (row.PassiveElementType ==
+                                comboBox1.SelectedItem.ToString())
+                        {
+                            _passiveElementsSearch.Add(row);
+                        }
+                    }
+                }
+                if (!string.IsNullOrEmpty(searchTextBox.Text))
+                {
+                    foreach (var row in _passiveElements)
+                    {
+                        if (row.GetInfo == searchTextBox.Text)
+                        {
+                            _passiveElementsSearch.Add(row);
+                        }
+                    }
+                }
+                if (!_passiveElementsSearch.Any())
+                {
+                    MessageBox.Show("Ничего не найдено!");
+                }
+            }
+            catch (Exception exception)
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// Сброс поиска и отображение исходного листа
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CreateView(
+                _passiveElements, dataPassiveElementView);
         }
     }
 }

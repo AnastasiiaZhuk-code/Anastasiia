@@ -31,7 +31,8 @@ namespace PassiveElementLibrary
 
             set
             {
-                _resistance = ElementChecker.ValueChecker(value);
+                _resistance = ElementChecker.ValueChecker(value, 
+                    "АКТИВНОЕ СОПРОТИВЛЕНИЕ");
             }
         }
 

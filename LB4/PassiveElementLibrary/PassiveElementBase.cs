@@ -25,9 +25,9 @@ namespace PassiveElementLibrary
         /// <summary>
         /// Тип пассивного элемента
         /// </summary>
-        public abstract string PassiveElementType 
-        { 
-            get; 
+        public abstract string PassiveElementType
+        {
+            get;
         }
 
         /// <summary>

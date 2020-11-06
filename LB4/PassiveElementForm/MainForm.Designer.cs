@@ -39,6 +39,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataPassiveElementView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +50,7 @@
             this.dataPassiveElementView.AllowUserToDeleteRows = false;
             this.dataPassiveElementView.AllowUserToResizeRows = false;
             this.dataPassiveElementView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataPassiveElementView.Location = new System.Drawing.Point(12, 65);
+            this.dataPassiveElementView.Location = new System.Drawing.Point(12, 119);
             this.dataPassiveElementView.Name = "dataPassiveElementView";
             this.dataPassiveElementView.ReadOnly = true;
             this.dataPassiveElementView.RowHeadersWidth = 51;
@@ -58,7 +60,7 @@
             // 
             // AddPassiveElementButton
             // 
-            this.AddPassiveElementButton.Location = new System.Drawing.Point(12, 364);
+            this.AddPassiveElementButton.Location = new System.Drawing.Point(12, 418);
             this.AddPassiveElementButton.Name = "AddPassiveElementButton";
             this.AddPassiveElementButton.Size = new System.Drawing.Size(135, 29);
             this.AddPassiveElementButton.TabIndex = 1;
@@ -68,7 +70,7 @@
             // 
             // DeletePassiveElementButton
             // 
-            this.DeletePassiveElementButton.Location = new System.Drawing.Point(153, 364);
+            this.DeletePassiveElementButton.Location = new System.Drawing.Point(153, 418);
             this.DeletePassiveElementButton.Name = "DeletePassiveElementButton";
             this.DeletePassiveElementButton.Size = new System.Drawing.Size(134, 29);
             this.DeletePassiveElementButton.TabIndex = 2;
@@ -78,7 +80,7 @@
             // 
             // SavePassiveElementButton
             // 
-            this.SavePassiveElementButton.Location = new System.Drawing.Point(293, 364);
+            this.SavePassiveElementButton.Location = new System.Drawing.Point(293, 418);
             this.SavePassiveElementButton.Name = "SavePassiveElementButton";
             this.SavePassiveElementButton.Size = new System.Drawing.Size(144, 29);
             this.SavePassiveElementButton.TabIndex = 3;
@@ -88,7 +90,7 @@
             // 
             // LoadPassiveElementButton
             // 
-            this.LoadPassiveElementButton.Location = new System.Drawing.Point(443, 364);
+            this.LoadPassiveElementButton.Location = new System.Drawing.Point(443, 418);
             this.LoadPassiveElementButton.Name = "LoadPassiveElementButton";
             this.LoadPassiveElementButton.Size = new System.Drawing.Size(144, 29);
             this.LoadPassiveElementButton.TabIndex = 4;
@@ -98,7 +100,7 @@
             // 
             // SearchPassiveElementButton
             // 
-            this.SearchPassiveElementButton.Location = new System.Drawing.Point(640, 23);
+            this.SearchPassiveElementButton.Location = new System.Drawing.Point(582, 76);
             this.SearchPassiveElementButton.Name = "SearchPassiveElementButton";
             this.SearchPassiveElementButton.Size = new System.Drawing.Size(86, 29);
             this.SearchPassiveElementButton.TabIndex = 5;
@@ -108,7 +110,7 @@
             // 
             // GetRandomPassiveElementButton
             // 
-            this.GetRandomPassiveElementButton.Location = new System.Drawing.Point(593, 364);
+            this.GetRandomPassiveElementButton.Location = new System.Drawing.Point(593, 418);
             this.GetRandomPassiveElementButton.Name = "GetRandomPassiveElementButton";
             this.GetRandomPassiveElementButton.Size = new System.Drawing.Size(170, 29);
             this.GetRandomPassiveElementButton.TabIndex = 6;
@@ -118,7 +120,7 @@
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(508, 26);
+            this.searchTextBox.Location = new System.Drawing.Point(463, 80);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(89, 22);
             this.searchTextBox.TabIndex = 8;
@@ -126,7 +128,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(294, 12);
+            this.label2.Location = new System.Drawing.Point(247, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(205, 34);
             this.label2.TabIndex = 10;
@@ -135,7 +137,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 27);
+            this.label1.Location = new System.Drawing.Point(13, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 17);
             this.label1.TabIndex = 9;
@@ -149,16 +151,39 @@
             "Индуктивность",
             "Конденсатор",
             "Резистор"});
-            this.comboBox1.Location = new System.Drawing.Point(119, 22);
+            this.comboBox1.Location = new System.Drawing.Point(119, 76);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 11;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(674, 76);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(86, 29);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Сбросить";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(728, 34);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Для поиска выберите вид пассивного элемента в списке, и введите комплексное сопро" +
+    "тивление элемента. \r\nСопротивление должно точно повторять структуру N + i * (N)." +
+    "";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(775, 405);
+            this.ClientSize = new System.Drawing.Size(775, 460);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -196,6 +221,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label3;
     }
 }
 

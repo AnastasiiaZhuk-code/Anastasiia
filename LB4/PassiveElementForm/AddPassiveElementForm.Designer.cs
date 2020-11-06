@@ -59,7 +59,7 @@
             "Резистор"});
             this.rangeOfTypesPassiveElementsComboBox.Location = new System.Drawing.Point(270, 24);
             this.rangeOfTypesPassiveElementsComboBox.Name = "rangeOfTypesPassiveElementsComboBox";
-            this.rangeOfTypesPassiveElementsComboBox.Size = new System.Drawing.Size(121, 24);
+            this.rangeOfTypesPassiveElementsComboBox.Size = new System.Drawing.Size(133, 24);
             this.rangeOfTypesPassiveElementsComboBox.TabIndex = 5;
             this.rangeOfTypesPassiveElementsComboBox.SelectedIndexChanged += new System.EventHandler(this.rangeOfTypesPassiveElementsComboBox_SelectedIndexChanged);
             // 
@@ -130,6 +130,7 @@
             this.AddPassiveElementButton.TabIndex = 8;
             this.AddPassiveElementButton.Text = "ОК";
             this.AddPassiveElementButton.UseVisualStyleBackColor = true;
+            this.AddPassiveElementButton.Click += new System.EventHandler(this.AddPassiveElementButton_Click);
             // 
             // AddPassiveElementForm
             // 
@@ -147,7 +148,6 @@
             this.Name = "AddPassiveElementForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавить пассивный элемент";
-            this.Load += new System.EventHandler(this.AddPassiveElementForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

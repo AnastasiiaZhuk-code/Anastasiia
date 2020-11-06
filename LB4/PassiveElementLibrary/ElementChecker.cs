@@ -17,13 +17,14 @@ namespace PassiveElementLibrary
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static double ValueChecker(double value)
+        public static double ValueChecker(double value, string nameOfElement)
         {
             if (value <= 0 || double.IsNaN(value))
             {
-                throw new ArgumentOutOfRangeException("Невозможно" +
-                    " передать значение параметра по одной из" +
-                    " причин: отрицательное или нулевое значение," +
+                throw new ArgumentException("Невозможно" +
+                    " передать значение параметра по одной из причин" +
+                       $" {nameOfElement} " +
+                    " имеет отрицательное или нулевое значение," +
                     " нечисловой формат. Попробуйте снова!");
             }
             return value;

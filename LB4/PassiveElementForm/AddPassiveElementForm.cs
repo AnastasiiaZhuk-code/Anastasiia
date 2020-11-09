@@ -31,6 +31,11 @@ namespace PassiveElementForm
         private PassiveElementBase _passiveElement;
 
         /// <summary>
+        /// Сообщение об ошибке
+        /// </summary>
+        private string _messageException = "";
+
+        /// <summary>
         /// Флаг для внесения данных и закрытия формы
         /// </summary>
         private bool _isCorrect;
@@ -65,6 +70,10 @@ namespace PassiveElementForm
         private void rangeOfTypesPassiveElementsComboBox_SelectedIndexChanged(
             object sender, EventArgs e)
         {
+            _passiveElement = new Capacitor();
+
+            //rangeOfTypesPassiveElementsComboBox.DataSource = _passiveElement.PassiveElementType;
+
             string typeOfPassiveElement = 
                 rangeOfTypesPassiveElementsComboBox.SelectedItem.ToString();
 
@@ -120,8 +129,7 @@ namespace PassiveElementForm
                 if (exception is ArgumentException ||
                     exception is FormatException)
                 {
-
-                    MessageBox.Show(exception.Message);
+                    _messageException += exception.Message + "\n";
                 }
                 else
                 {
@@ -143,6 +151,7 @@ namespace PassiveElementForm
                 {
                     ReadAndParse(
                         PassiveElementParameter1_textBox.Text,
+                        Constants.Частота.ToString(),
                         out double frecuency);
                     newInductor.Frecuency = frecuency;
                 }),
@@ -150,6 +159,7 @@ namespace PassiveElementForm
                 {
                     ReadAndParse(
                         PassiveElementParameter2_textBox.Text,
+                        Constants.Индуктивность.ToString(),
                         out double inductance);
                     newInductor.Inductance = inductance;
                 })
@@ -171,6 +181,7 @@ namespace PassiveElementForm
                 {
                     ReadAndParse(
                         PassiveElementParameter1_textBox.Text,
+                        Constants.Частота.ToString(),
                         out double frecuency);
                     newCapacitor.Frecuency = frecuency;
                 }),
@@ -178,6 +189,7 @@ namespace PassiveElementForm
                 {
                     ReadAndParse(
                         PassiveElementParameter2_textBox.Text,
+                        Constants.Емкость.ToString(),
                         out double capacity);
                     newCapacitor.Сapacity = capacity;
                 })
@@ -199,6 +211,7 @@ namespace PassiveElementForm
                 {
                     ReadAndParse(
                         PassiveElementParameter1_textBox.Text,
+                        Constants.Активное_сопротивление.ToString(),
                         out double resistance);
                     newResistor.Resistance = resistance;
                 })
@@ -207,18 +220,23 @@ namespace PassiveElementForm
             return newResistor;
         }
 
+
         /// <summary>
-        /// Преобразование string в double
+        /// Считывает и переводит в тип double 
+        /// входное значение параметра
         /// </summary>
-        /// <param name="textValue">Преобразуемая строка</param>
-        /// <param name="doubleValue">Преобразованная строка к типу double</param>
-        /// <param name="textBoxName">Имя TextBox</param>
-        /// <returns>Строку, преобразованную к типу double</returns>
-        private double ReadAndParse(string textValue,
+        /// <param name="textValue">Входное значение 
+        /// параметра</param>
+        /// <param name="nameOfParameter">Имя параметра
+        /// пассивного элемента</param>
+        /// <param name="doubleValue">Выходное значение параметра</param>
+        /// <returns>Обработанную строку</returns>
+        private double ReadAndParse(string textValue, string nameOfParameter,
             out double doubleValue)
         {
             var isParseOK = double.TryParse(textValue.Replace(',', '.'),
                 NumberStyles.Float, CultureInfo.InvariantCulture, out _);
+
             if (isParseOK)
             {
                 return doubleValue = double.Parse(textValue.Replace(',', '.'),
@@ -226,8 +244,8 @@ namespace PassiveElementForm
             }
             else
             {
-                throw new FormatException("\nВведено не число!" +
-                    "Попробуйте снова\n");
+                throw new FormatException($"Введено не" +
+                    $" число в поле {nameOfParameter}.\n");
             }
         }
 
@@ -237,6 +255,7 @@ namespace PassiveElementForm
         private void InputData()
         {
             _isCorrect = true;
+            _messageException = "";
 
             switch (_passiveElement)
             {
@@ -258,7 +277,7 @@ namespace PassiveElementForm
                 default:
                 {
                     throw new ArgumentException("Выберите вид" +
-                        " пассивного элемента");
+                        " пассивного элемента!");
                 }
             }
         }
@@ -282,7 +301,14 @@ namespace PassiveElementForm
             }
             catch(Exception exception)
             {
-                MessageBox.Show(exception.Message);
+                _messageException += exception.Message + "\n";
+            }
+            finally 
+            {
+                if(_messageException != "")
+                {
+                    MessageBox.Show(_messageException);
+                }
             }
         }
     }

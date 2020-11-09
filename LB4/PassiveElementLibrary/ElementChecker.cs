@@ -19,25 +19,30 @@ namespace PassiveElementLibrary
         /// <returns></returns>
         public static double ValueChecker(double value, string nameOfElement)
         {
-            if (value <= 0 || double.IsNaN(value))
+            if (double.IsNaN(value))
             {
-                throw new ArgumentException("Невозможно" +
-                    " передать значение параметра по одной из причин" +
-                       $" {nameOfElement} " +
-                    " имеет отрицательное или нулевое значение," +
-                    " нечисловой формат. Попробуйте снова!");
+                throw new ArgumentException($" {nameOfElement} " +
+                    " имеет неверный формат." +
+                    "Попробуйте снова!");
             }
             return value;
         }
 
+        /// <summary>
+        /// Проверяет входное значение на диапазон
+        /// </summary>
+        /// <param name="parameterOfElement"></param>
+        /// <param name="maxValue"></param>
+        /// <param name="nameOfElement"></param>
+        /// <returns></returns>
         public static double DiapasonChecker(double parameterOfElement,
-            double maxValue, string nameOfElement)
+            double maxValue, string nameOfElement, string unitOfParameter)
         {
             if (parameterOfElement <= 0 || parameterOfElement >= maxValue)
             {
-                throw new ArgumentException($"{nameOfElement} " +
-                        " должна находиться " +
-                        $"в пределах от 0 до {maxValue}.");
+                throw new ArgumentException($"Значение параметра " +
+                    $"{nameOfElement} должно находиться " +
+                    $"в пределах от 0 до {maxValue} {unitOfParameter}.\n");
             }
             return parameterOfElement;
         }

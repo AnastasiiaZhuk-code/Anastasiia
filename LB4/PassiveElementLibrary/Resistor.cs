@@ -17,7 +17,7 @@ namespace PassiveElementLibrary
         /// <summary>
         /// Активное сопротивление
         /// </summary>
-        public double _resistance;
+        private double _resistance;
 
         /// <summary>
         /// Активное сопротивление
@@ -31,8 +31,9 @@ namespace PassiveElementLibrary
 
             set
             {
-                _resistance = ElementChecker.ValueChecker(value, 
-                    "АКТИВНОЕ СОПРОТИВЛЕНИЕ");
+                _resistance = ElementChecker.DiapasonChecker(
+                    ElementChecker.ValueChecker(value, "Активное сопротивление"),
+                    1e10, "Активное сопротивление", "Ом");
             }
         }
 

@@ -17,12 +17,12 @@ namespace PassiveElementLibrary
         /// <summary>
         /// Частота
         /// </summary>
-        public double _frecuency;
+        private double _frecuency;
 
         /// <summary>
         /// Индуктивность
         /// </summary>
-        public double _inductance;
+        private double _inductance;
 
         /// <summary>
         /// Частота
@@ -36,8 +36,9 @@ namespace PassiveElementLibrary
 
             set
             {
-                _frecuency = ElementChecker.ValueChecker(value,
-                    "ЧАСТОТА");
+                _frecuency = ElementChecker.DiapasonChecker(
+                    ElementChecker.ValueChecker(value, "Частота"),
+                    1e15, "Частота", "Гц");
             }
         }
 
@@ -54,8 +55,8 @@ namespace PassiveElementLibrary
             set
             {
                 _inductance = ElementChecker.DiapasonChecker(
-                    ElementChecker.ValueChecker(value, "ИНДУКТИВНОСТЬ"),
-                    1e6, "Индуктивность");
+                    ElementChecker.ValueChecker(value, "Индуктивность"),
+                    1e6, "Индуктивность", "Гн");
             }
         }
 

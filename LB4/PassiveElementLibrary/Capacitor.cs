@@ -17,12 +17,12 @@ namespace PassiveElementLibrary
         /// <summary>
         /// Частота
         /// </summary>
-        public double _frecuency;
+        private double _frecuency;
 
         /// <summary>
         /// Емкость
         /// </summary>
-        public double _capacity;
+        private double _capacity;
 
         /// <summary>
         /// Частота
@@ -36,7 +36,9 @@ namespace PassiveElementLibrary
 
             set
             {
-                _frecuency = ElementChecker.ValueChecker(value, "ЧАСТОТА");
+                _frecuency = ElementChecker.DiapasonChecker(
+                    ElementChecker.ValueChecker(value, "Частота"),
+                    1e15, "Частота", "Гц");
             }
         }
 
@@ -53,8 +55,8 @@ namespace PassiveElementLibrary
             set
             {
                 _capacity = ElementChecker.DiapasonChecker(
-                    ElementChecker.ValueChecker(value, "ЕМКОСТЬ"),
-                    1e5, "Емкость");
+                    ElementChecker.ValueChecker(value, "Емкость"),
+                    1e5, "Емкость", "Ф");
             }
         }
 

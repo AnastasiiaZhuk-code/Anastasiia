@@ -56,7 +56,7 @@ namespace PassiveElementLibrary
             {
                 _inductance = ElementChecker.DiapasonChecker(
                     ElementChecker.ValueChecker(value, "Индуктивность"),
-                    1e6, "Индуктивность", "Гн");
+                    1e6, PassiveElementType, "Гн");
             }
         }
 

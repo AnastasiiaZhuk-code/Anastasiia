@@ -56,7 +56,7 @@ namespace PassiveElementLibrary
             {
                 _capacity = ElementChecker.DiapasonChecker(
                     ElementChecker.ValueChecker(value, "Емкость"),
-                    1e5, "Емкость", "Ф");
+                    1e5, PassiveElementType, "Ф");
             }
         }
 

@@ -30,6 +30,8 @@ namespace PassiveElementForm
         /// </summary>
         private PassiveElementBase _passiveElement;
 
+        private Dictionary<string, string> _parametersOfPassiveElement;
+
         /// <summary>
         /// Сообщение об ошибке
         /// </summary>
@@ -151,7 +153,8 @@ namespace PassiveElementForm
                 {
                     ReadAndParse(
                         PassiveElementParameter1_textBox.Text,
-                        Constants.Частота.ToString(),
+                        TranslateParameter(NamesOfPassiveElementParameters.
+                        Frecuency.ToString()),
                         out double frecuency);
                     newInductor.Frecuency = frecuency;
                 }),
@@ -159,7 +162,8 @@ namespace PassiveElementForm
                 {
                     ReadAndParse(
                         PassiveElementParameter2_textBox.Text,
-                        Constants.Индуктивность.ToString(),
+                        TranslateParameter(NamesOfPassiveElementParameters.
+                        Inductance.ToString()),
                         out double inductance);
                     newInductor.Inductance = inductance;
                 })
@@ -181,7 +185,8 @@ namespace PassiveElementForm
                 {
                     ReadAndParse(
                         PassiveElementParameter1_textBox.Text,
-                        Constants.Частота.ToString(),
+                        TranslateParameter(NamesOfPassiveElementParameters.
+                        Frecuency.ToString()),
                         out double frecuency);
                     newCapacitor.Frecuency = frecuency;
                 }),
@@ -189,7 +194,8 @@ namespace PassiveElementForm
                 {
                     ReadAndParse(
                         PassiveElementParameter2_textBox.Text,
-                        Constants.Емкость.ToString(),
+                        TranslateParameter(NamesOfPassiveElementParameters.
+                        Capacity.ToString()),
                         out double capacity);
                     newCapacitor.Сapacity = capacity;
                 })
@@ -206,12 +212,14 @@ namespace PassiveElementForm
         {
             var newResistor = new Resistor();
             var actions = new List<Action>()
+
             {
                 new Action(() =>
                 {
                     ReadAndParse(
                         PassiveElementParameter1_textBox.Text,
-                        Constants.Активное_сопротивление.ToString(),
+                        TranslateParameter(NamesOfPassiveElementParameters.
+                        Resistance.ToString()),
                         out double resistance);
                     newResistor.Resistance = resistance;
                 })
@@ -310,6 +318,28 @@ namespace PassiveElementForm
                     MessageBox.Show(_messageException);
                 }
             }
+        }
+
+        
+        
+        /// <summary>
+        /// Переводит имя параметра с английского на русский
+        /// </summary>
+        /// <param name="inputString">Входная строка/
+        /// Имя параметра на английском</param>
+        /// <returns>Выходная строка/Имя параметра на русском</returns>
+        private string TranslateParameter(string inputString)
+        {
+            string outputString = "";
+
+            if(DictionaryOfNamesOfPassiveElementParameters.
+                parametersOfPassiveElement.TryGetValue(
+                inputString, out outputString))
+            {
+                return outputString;
+            }
+
+            return outputString;
         }
     }
 }

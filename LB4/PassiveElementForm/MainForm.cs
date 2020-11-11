@@ -187,6 +187,8 @@ namespace PassiveElementForm
                 DataGridViewSelectionMode.FullRowSelect;
         }
 
+        //!!!!!!!!!!!!
+
         /// <summary>
         /// Поиск пассивного элемента
         /// </summary>
@@ -195,6 +197,19 @@ namespace PassiveElementForm
         private void SearchPassiveElementButton_Click(object sender, EventArgs e)
         {
             Search();
+
+            AddPassiveElementButton.Enabled = true;
+            AddPassiveElementButton.Visible = false;
+            DeletePassiveElementButton.Enabled = true;
+            DeletePassiveElementButton.Visible = false;
+            LoadPassiveElementButton.Enabled = true;
+            LoadPassiveElementButton.Visible = false;
+            SavePassiveElementButton.Enabled = true;
+            SavePassiveElementButton.Visible = false;
+            GetRandomPassiveElementButton.Enabled = true;
+            GetRandomPassiveElementButton.Visible = false;
+            DeleteSearchButton.Visible = true;
+
         }
 
         /// <summary>
@@ -209,28 +224,51 @@ namespace PassiveElementForm
 
             try
             {
-                if (comboBox1.CanFocus)
+                if (TypesOfPassiveElementsComboBox.CanFocus)
                 {
                     foreach (var row in _passiveElements)
                     {
                         if (row.PassiveElementType ==
-                                comboBox1.SelectedItem.ToString())
+                                TypesOfPassiveElementsComboBox.SelectedItem.ToString())
                         {
+
                             _passiveElementsSearch.Add(row);
                         }
                     }
                 }
-                if (!string.IsNullOrEmpty(searchTextBox.Text))
+                if (!string.IsNullOrEmpty(realPartSearchTextBox.Text) ||
+                    TypesOfPassiveElementsComboBox.CanFocus ||
+                    realPartSearchComboBox.CanFocus)
                 {
                     foreach (var row in _passiveElements)
                     {
-                        if (row.GetInfo == searchTextBox.Text)
+                        if (row.GetInfo == realPartSearchTextBox.Text ||
+                            row.PassiveElementType ==
+                            TypesOfPassiveElementsComboBox.
+                            SelectedItem.ToString())
                         {
+
                             _passiveElementsSearch.Add(row);
                         }
                     }
                 }
-                if (!_passiveElementsSearch.Any())
+                if (!string.IsNullOrEmpty(imaginaryPartSearchTextBox.Text) ||
+                    TypesOfPassiveElementsComboBox.CanFocus ||
+                    imaginaryPartSearchComboBox.CanFocus)
+                {
+                    foreach (var row in _passiveElements)
+                    {
+                        if (row.GetInfo == imaginaryPartSearchTextBox.Text ||
+                            row.PassiveElementType ==
+                            TypesOfPassiveElementsComboBox.
+                            SelectedItem.ToString())
+                        {
+
+                            _passiveElementsSearch.Add(row);
+                        }
+                    }
+                }
+                if(!_passiveElementsSearch.Any())
                 {
                     MessageBox.Show("Ничего не найдено!");
                 }
@@ -246,10 +284,22 @@ namespace PassiveElementForm
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
+        private void DeleteSearchButton_Click(object sender, EventArgs e)
         {
             CreateView(
                 _passiveElements, dataPassiveElementView);
+
+            AddPassiveElementButton.Enabled = true;
+            AddPassiveElementButton.Visible = true;
+            DeletePassiveElementButton.Enabled = true;
+            DeletePassiveElementButton.Visible = true;
+            LoadPassiveElementButton.Enabled = true;
+            LoadPassiveElementButton.Visible = true;
+            SavePassiveElementButton.Enabled = true;
+            SavePassiveElementButton.Visible = true;
+            GetRandomPassiveElementButton.Enabled = true;
+            GetRandomPassiveElementButton.Visible = true;
+            DeleteSearchButton.Visible = false;
         }
     }
 }

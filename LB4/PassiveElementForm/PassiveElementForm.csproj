@@ -34,7 +34,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.Composition.Registration" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,7 +56,6 @@
     <Compile Include="AddPassiveElementForm.Designer.cs">
       <DependentUpon>AddPassiveElementForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DictionaryOfNamesOfPassiveElementParameters.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +66,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomPassiveElement.cs" />
+    <Compile Include="ReadingAndParsing.cs" />
     <EmbeddedResource Include="AddPassiveElementForm.resx">
       <DependentUpon>AddPassiveElementForm.cs</DependentUpon>
     </EmbeddedResource>

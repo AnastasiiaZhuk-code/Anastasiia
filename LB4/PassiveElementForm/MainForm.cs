@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using PassiveElementLibrary;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Numerics;
 
 namespace PassiveElementForm
 {
@@ -36,8 +37,7 @@ namespace PassiveElementForm
         /// Список с найденными пассивными элементами
         /// </summary>
         private BindingList<PassiveElementBase> 
-            _passiveElementsSearch =
-            new BindingList<PassiveElementBase>();
+            _passiveElementsSearch = new BindingList<PassiveElementBase>();
 
         /// <summary>
         /// Событие при загрузке формы
@@ -46,8 +46,9 @@ namespace PassiveElementForm
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            CreateView(
-                _passiveElements, dataPassiveElementView);
+            CreateView(_passiveElements, dataPassiveElementView);
+
+            //TypesOfPassiveElementsComboBox.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -198,17 +199,20 @@ namespace PassiveElementForm
         {
             Search();
 
-            AddPassiveElementButton.Enabled = true;
-            AddPassiveElementButton.Visible = false;
-            DeletePassiveElementButton.Enabled = true;
-            DeletePassiveElementButton.Visible = false;
-            LoadPassiveElementButton.Enabled = true;
-            LoadPassiveElementButton.Visible = false;
-            SavePassiveElementButton.Enabled = true;
-            SavePassiveElementButton.Visible = false;
-            GetRandomPassiveElementButton.Enabled = true;
-            GetRandomPassiveElementButton.Visible = false;
+            //AddPassiveElementButton.Enabled = true;
+            //AddPassiveElementButton.Visible = false;
+            //DeletePassiveElementButton.Enabled = true;
+            //DeletePassiveElementButton.Visible = false;
+            //LoadPassiveElementButton.Enabled = true;
+            //LoadPassiveElementButton.Visible = false;
+            //SavePassiveElementButton.Enabled = true;
+            //SavePassiveElementButton.Visible = false;
+            //GetRandomPassiveElementButton.Enabled = true;
+            //GetRandomPassiveElementButton.Visible = false;
             DeleteSearchButton.Visible = true;
+
+            //DeletePassiveElementButton.Enabled = true;
+            //DeletePassiveElementButton.Visible = true;
 
         }
 
@@ -216,7 +220,7 @@ namespace PassiveElementForm
         /// Ищет необходимый пассивный элемент в листе
         /// </summary>
         private void Search()
-        {
+        {   
             _passiveElementsSearch.Clear();
 
             CreateView(
@@ -224,58 +228,63 @@ namespace PassiveElementForm
 
             try
             {
-                if (TypesOfPassiveElementsComboBox.CanFocus)
+            if (TypesOfPassiveElementsComboBox.SelectedIndex != -1 &&
+                string.IsNullOrEmpty(realPartSearchTextBox.Text) &&
+                string.IsNullOrEmpty(imaginaryPartSearchTextBox.Text))
+            {
+                foreach (var row in _passiveElements)
                 {
-                    foreach (var row in _passiveElements)
+                    if (row.PassiveElementType == 
+                        TypesOfPassiveElementsComboBox.SelectedItem.
+                        ToString())
                     {
-                        if (row.PassiveElementType ==
-                                TypesOfPassiveElementsComboBox.SelectedItem.ToString())
-                        {
-
-                            _passiveElementsSearch.Add(row);
-                        }
+                        _passiveElementsSearch.Add(row);
                     }
-                }
-                if (!string.IsNullOrEmpty(realPartSearchTextBox.Text) ||
-                    TypesOfPassiveElementsComboBox.CanFocus ||
-                    realPartSearchComboBox.CanFocus)
-                {
-                    foreach (var row in _passiveElements)
-                    {
-                        if (row.GetInfo == realPartSearchTextBox.Text ||
-                            row.PassiveElementType ==
-                            TypesOfPassiveElementsComboBox.
-                            SelectedItem.ToString())
-                        {
-
-                            _passiveElementsSearch.Add(row);
-                        }
-                    }
-                }
-                if (!string.IsNullOrEmpty(imaginaryPartSearchTextBox.Text) ||
-                    TypesOfPassiveElementsComboBox.CanFocus ||
-                    imaginaryPartSearchComboBox.CanFocus)
-                {
-                    foreach (var row in _passiveElements)
-                    {
-                        if (row.GetInfo == imaginaryPartSearchTextBox.Text ||
-                            row.PassiveElementType ==
-                            TypesOfPassiveElementsComboBox.
-                            SelectedItem.ToString())
-                        {
-
-                            _passiveElementsSearch.Add(row);
-                        }
-                    }
-                }
-                if(!_passiveElementsSearch.Any())
-                {
-                    MessageBox.Show("Ничего не найдено!");
                 }
             }
-            catch (Exception exception)
+            else if (!string.IsNullOrEmpty(realPartSearchTextBox.Text) &&
+                TypesOfPassiveElementsComboBox.SelectedIndex != -1 &&
+                realPartSearchComboBox.SelectedIndex != -1)
             {
+                 foreach (var row in _passiveElements)
+                 {
+                    double realPart;
+                    realPart = ReadingAndParsing.ReadAndParse(realPartSearchTextBox.Text, 
+                        "Действительное сопротивление", out realPart);
 
+                     if (row.ComplexResistance.Real == realPart && 
+                        row.PassiveElementType ==
+                        TypesOfPassiveElementsComboBox.SelectedItem.
+                        ToString())
+                     {
+                            _passiveElementsSearch.Add(row);
+                     }
+                 }
+            }
+            else if (!string.IsNullOrEmpty(imaginaryPartSearchTextBox.Text) &&
+                   TypesOfPassiveElementsComboBox.SelectedIndex != -1 &&
+                   imaginaryPartSearchComboBox.SelectedIndex != -1)
+            {
+                 foreach (var row in _passiveElements)
+                 {
+                     if (row.ComplexResistance.Imaginary.ToString() == 
+                         imaginaryPartSearchTextBox.Text &&
+                         row.PassiveElementType ==
+                         TypesOfPassiveElementsComboBox.
+                         SelectedItem.ToString())
+                     {
+                             _passiveElementsSearch.Add(row);
+                     }
+                 }
+            }
+            else if(!_passiveElementsSearch.Any())
+            {
+                   MessageBox.Show("Ничего не найдено!");
+            }
+            }
+            catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message);
             }
         }
 
@@ -300,6 +309,8 @@ namespace PassiveElementForm
             GetRandomPassiveElementButton.Enabled = true;
             GetRandomPassiveElementButton.Visible = true;
             DeleteSearchButton.Visible = false;
+
+            
         }
     }
 }

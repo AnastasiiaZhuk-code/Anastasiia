@@ -167,7 +167,6 @@
             this.DeleteSearchButton.TabIndex = 12;
             this.DeleteSearchButton.Text = "Сбросить";
             this.DeleteSearchButton.UseVisualStyleBackColor = true;
-            this.DeleteSearchButton.Visible = false;
             this.DeleteSearchButton.Click += new System.EventHandler(this.DeleteSearchButton_Click);
             // 
             // label3

@@ -63,7 +63,7 @@ namespace PassiveElementLibrary
         /// <summary>
         /// Комплексное сопротивление
         /// </summary>
-        protected override Complex ComplexResistance
+        public override Complex ComplexResistance
         {
             get
             {

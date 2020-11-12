@@ -151,7 +151,7 @@ namespace PassiveElementForm
             {
                 new Action(() =>
                 {
-                    ReadAndParse(
+                    ReadingAndParsing.ReadAndParse(
                         PassiveElementParameter1_textBox.Text,
                         TranslateParameter(NamesOfPassiveElementParameters.
                         Frecuency.ToString()),
@@ -160,7 +160,7 @@ namespace PassiveElementForm
                 }),
                 new Action(() =>
                 {
-                    ReadAndParse(
+                    ReadingAndParsing.ReadAndParse(
                         PassiveElementParameter2_textBox.Text,
                         TranslateParameter(NamesOfPassiveElementParameters.
                         Inductance.ToString()),
@@ -183,7 +183,7 @@ namespace PassiveElementForm
             {
                 new Action(() =>
                 {
-                    ReadAndParse(
+                    ReadingAndParsing.ReadAndParse(
                         PassiveElementParameter1_textBox.Text,
                         TranslateParameter(NamesOfPassiveElementParameters.
                         Frecuency.ToString()),
@@ -192,7 +192,7 @@ namespace PassiveElementForm
                 }),
                 new Action(() =>
                 {
-                    ReadAndParse(
+                    ReadingAndParsing.ReadAndParse(
                         PassiveElementParameter2_textBox.Text,
                         TranslateParameter(NamesOfPassiveElementParameters.
                         Capacity.ToString()),
@@ -216,7 +216,7 @@ namespace PassiveElementForm
             {
                 new Action(() =>
                 {
-                    ReadAndParse(
+                    ReadingAndParsing.ReadAndParse(
                         PassiveElementParameter1_textBox.Text,
                         TranslateParameter(NamesOfPassiveElementParameters.
                         Resistance.ToString()),
@@ -229,33 +229,33 @@ namespace PassiveElementForm
         }
 
 
-        /// <summary>
-        /// Считывает и переводит в тип double 
-        /// входное значение параметра
-        /// </summary>
-        /// <param name="textValue">Входное значение 
-        /// параметра</param>
-        /// <param name="nameOfParameter">Имя параметра
-        /// пассивного элемента</param>
-        /// <param name="doubleValue">Выходное значение параметра</param>
-        /// <returns>Обработанную строку</returns>
-        private double ReadAndParse(string textValue, string nameOfParameter,
-            out double doubleValue)
-        {
-            var isParseOK = double.TryParse(textValue.Replace(',', '.'),
-                NumberStyles.Float, CultureInfo.InvariantCulture, out _);
+        ///// <summary>
+        ///// Считывает и переводит в тип double 
+        ///// входное значение параметра
+        ///// </summary>
+        ///// <param name="textValue">Входное значение 
+        ///// параметра</param>
+        ///// <param name="nameOfParameter">Имя параметра
+        ///// пассивного элемента</param>
+        ///// <param name="doubleValue">Выходное значение параметра</param>
+        ///// <returns>Обработанную строку</returns>
+        //private double ReadAndParse(string textValue, string nameOfParameter,
+        //    out double doubleValue)
+        //{
+        //    var isParseOK = double.TryParse(textValue.Replace(',', '.'),
+        //        NumberStyles.Float, CultureInfo.InvariantCulture, out _);
 
-            if (isParseOK)
-            {
-                return doubleValue = double.Parse(textValue.Replace(',', '.'),
-                    CultureInfo.InvariantCulture);
-            }
-            else
-            {
-                throw new FormatException($"Введено не" +
-                    $" число в поле {nameOfParameter}.\n");
-            }
-        }
+        //    if (isParseOK)
+        //    {
+        //        return doubleValue = double.Parse(textValue.Replace(',', '.'),
+        //            CultureInfo.InvariantCulture);
+        //    }
+        //    else
+        //    {
+        //        throw new FormatException($"Введено не" +
+        //            $" число в поле {nameOfParameter}.\n");
+        //    }
+        //}
 
         /// <summary>
         /// Ввод данных о пассивном элементе
@@ -330,16 +330,33 @@ namespace PassiveElementForm
         /// <returns>Выходная строка/Имя параметра на русском</returns>
         private string TranslateParameter(string inputString)
         {
+             Dictionary<string, string> parametersOfPassiveElement
+            = new Dictionary<string, string>
+            {
+                {NamesOfPassiveElementParameters.Resistance.ToString(),
+                    "Активное сопротивление"},
+                {NamesOfPassiveElementParameters.Capacity.ToString(),
+                    " Емкость"},
+                {NamesOfPassiveElementParameters.Inductance.ToString(),
+                    "Индуктивность"},
+                {NamesOfPassiveElementParameters.Frecuency.ToString(),
+                    "Частота"},
+            };
+
             string outputString = "";
 
-            if(DictionaryOfNamesOfPassiveElementParameters.
-                parametersOfPassiveElement.TryGetValue(
+            if(parametersOfPassiveElement.TryGetValue(
                 inputString, out outputString))
             {
                 return outputString;
             }
 
             return outputString;
+        }
+
+        private void AddPassiveElementForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

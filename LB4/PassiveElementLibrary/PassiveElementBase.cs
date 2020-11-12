@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Numerics;
+using System.ComponentModel;
 
 namespace PassiveElementLibrary
 {
@@ -17,7 +18,8 @@ namespace PassiveElementLibrary
         /// <summary>
         /// Комплексное сопротивление 
         /// </summary>
-        protected abstract Complex ComplexResistance
+        [Browsable(false)]
+        public abstract Complex ComplexResistance
         {
             get;
         }

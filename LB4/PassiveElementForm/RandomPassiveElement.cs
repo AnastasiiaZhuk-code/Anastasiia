@@ -23,41 +23,40 @@ namespace PassiveElementForm
         /// <returns>Ексемпляр пассивного элемента</returns>
         public static PassiveElementBase GetRandomPassiveElement()
         {
-            PassiveElementBase passiveElement = new Capacitor();
+            var typePassiveElement = _random.Next(0, 3);
 
-            int typePassiveElement = _random.Next(0, 3);
-
-            if (typePassiveElement == 0)
+            switch(typePassiveElement)
             {
-                passiveElement = new Capacitor();
-
-                (passiveElement as Capacitor).Сapacity =
+                case 0:
+                {
+                    var passiveElement = new Capacitor();
+                    passiveElement.Сapacity =
                     Convert.ToDouble(_random.Next(1, 100));
-
-                (passiveElement as Capacitor).Frecuency =
+                    passiveElement.Frecuency =
                     Convert.ToDouble(_random.Next(1, 10));
-            }
-
-            if (typePassiveElement == 1)
-            {
-                passiveElement = new Resistor();
-
-                (passiveElement as Resistor).Resistance = 
+                    return passiveElement;
+                }
+                case 1:
+                {
+                    var passiveElement = new Resistor();
+                    passiveElement.Resistance = 
                     Convert.ToDouble(_random.Next(1, 100));
-            }
-
-            if (typePassiveElement == 2)
-            {
-                passiveElement = new Inductor();
-
-                (passiveElement as Inductor).Inductance =
+                    return passiveElement;
+                }
+                case 2:
+                {
+                    var passiveElement = new Inductor();
+                    passiveElement.Inductance =
                     Convert.ToDouble(_random.Next(1, 100));
-
-                (passiveElement as Inductor).Frecuency =
-                    Convert.ToDouble(_random.Next(1, 10));
+                    passiveElement.Frecuency = Convert.ToDouble(
+                        _random.Next(1, 10));
+                    return passiveElement;
+                    }
+                default:
+                {
+                    throw new ArgumentException("Нет такого элемента!");
+                }
             }
-
-            return passiveElement;
         }
     }
 }

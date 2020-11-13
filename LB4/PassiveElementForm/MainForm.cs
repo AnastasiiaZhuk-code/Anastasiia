@@ -47,8 +47,6 @@ namespace PassiveElementForm
         private void MainForm_Load(object sender, EventArgs e)
         {
             CreateView(_passiveElements, dataPassiveElementView);
-
-            //TypesOfPassiveElementsComboBox.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -189,8 +187,6 @@ namespace PassiveElementForm
             dataGridView.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
         }
-
-        //!!!!!!!!!!!!
 
         /// <summary>
         /// Поиск пассивного элемента

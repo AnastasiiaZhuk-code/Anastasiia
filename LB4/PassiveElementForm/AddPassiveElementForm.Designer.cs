@@ -148,7 +148,6 @@
             this.Name = "AddPassiveElementForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавить пассивный элемент";
-            this.Load += new System.EventHandler(this.AddPassiveElementForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

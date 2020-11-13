@@ -73,9 +73,6 @@ namespace PassiveElementForm
             object sender, EventArgs e)
         {
             _passiveElement = new Capacitor();
-
-            //rangeOfTypesPassiveElementsComboBox.DataSource = _passiveElement.PassiveElementType;
-
             string typeOfPassiveElement = 
                 rangeOfTypesPassiveElementsComboBox.SelectedItem.ToString();
 
@@ -228,35 +225,6 @@ namespace PassiveElementForm
             return newResistor;
         }
 
-
-        ///// <summary>
-        ///// Считывает и переводит в тип double 
-        ///// входное значение параметра
-        ///// </summary>
-        ///// <param name="textValue">Входное значение 
-        ///// параметра</param>
-        ///// <param name="nameOfParameter">Имя параметра
-        ///// пассивного элемента</param>
-        ///// <param name="doubleValue">Выходное значение параметра</param>
-        ///// <returns>Обработанную строку</returns>
-        //private double ReadAndParse(string textValue, string nameOfParameter,
-        //    out double doubleValue)
-        //{
-        //    var isParseOK = double.TryParse(textValue.Replace(',', '.'),
-        //        NumberStyles.Float, CultureInfo.InvariantCulture, out _);
-
-        //    if (isParseOK)
-        //    {
-        //        return doubleValue = double.Parse(textValue.Replace(',', '.'),
-        //            CultureInfo.InvariantCulture);
-        //    }
-        //    else
-        //    {
-        //        throw new FormatException($"Введено не" +
-        //            $" число в поле {nameOfParameter}.\n");
-        //    }
-        //}
-
         /// <summary>
         /// Ввод данных о пассивном элементе
         /// </summary>
@@ -352,11 +320,6 @@ namespace PassiveElementForm
             }
 
             return outputString;
-        }
-
-        private void AddPassiveElementForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

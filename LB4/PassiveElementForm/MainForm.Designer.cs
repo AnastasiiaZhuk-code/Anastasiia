@@ -35,15 +35,12 @@
             this.LoadPassiveElementButton = new System.Windows.Forms.Button();
             this.SearchPassiveElementButton = new System.Windows.Forms.Button();
             this.GetRandomPassiveElementButton = new System.Windows.Forms.Button();
-            this.realPartSearchTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.nameOfResistance = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TypesOfPassiveElementsComboBox = new System.Windows.Forms.ComboBox();
             this.DeleteSearchButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.imaginaryPartSearchTextBox = new System.Windows.Forms.TextBox();
-            this.realPartSearchComboBox = new System.Windows.Forms.ComboBox();
-            this.imaginaryPartSearchComboBox = new System.Windows.Forms.ComboBox();
+            this.searchComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataPassiveElementView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,19 +50,21 @@
             this.dataPassiveElementView.AllowUserToDeleteRows = false;
             this.dataPassiveElementView.AllowUserToResizeRows = false;
             this.dataPassiveElementView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataPassiveElementView.Location = new System.Drawing.Point(12, 39);
+            this.dataPassiveElementView.Location = new System.Drawing.Point(9, 32);
+            this.dataPassiveElementView.Margin = new System.Windows.Forms.Padding(2);
             this.dataPassiveElementView.Name = "dataPassiveElementView";
             this.dataPassiveElementView.ReadOnly = true;
             this.dataPassiveElementView.RowHeadersWidth = 51;
             this.dataPassiveElementView.RowTemplate.Height = 24;
-            this.dataPassiveElementView.Size = new System.Drawing.Size(751, 281);
+            this.dataPassiveElementView.Size = new System.Drawing.Size(563, 228);
             this.dataPassiveElementView.TabIndex = 0;
             // 
             // AddPassiveElementButton
             // 
-            this.AddPassiveElementButton.Location = new System.Drawing.Point(12, 418);
+            this.AddPassiveElementButton.Location = new System.Drawing.Point(6, 302);
+            this.AddPassiveElementButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddPassiveElementButton.Name = "AddPassiveElementButton";
-            this.AddPassiveElementButton.Size = new System.Drawing.Size(135, 29);
+            this.AddPassiveElementButton.Size = new System.Drawing.Size(101, 24);
             this.AddPassiveElementButton.TabIndex = 1;
             this.AddPassiveElementButton.Text = "Добавить";
             this.AddPassiveElementButton.UseVisualStyleBackColor = true;
@@ -73,9 +72,10 @@
             // 
             // DeletePassiveElementButton
             // 
-            this.DeletePassiveElementButton.Location = new System.Drawing.Point(153, 418);
+            this.DeletePassiveElementButton.Location = new System.Drawing.Point(112, 302);
+            this.DeletePassiveElementButton.Margin = new System.Windows.Forms.Padding(2);
             this.DeletePassiveElementButton.Name = "DeletePassiveElementButton";
-            this.DeletePassiveElementButton.Size = new System.Drawing.Size(134, 29);
+            this.DeletePassiveElementButton.Size = new System.Drawing.Size(100, 24);
             this.DeletePassiveElementButton.TabIndex = 2;
             this.DeletePassiveElementButton.Text = "Удалить";
             this.DeletePassiveElementButton.UseVisualStyleBackColor = true;
@@ -83,9 +83,10 @@
             // 
             // SavePassiveElementButton
             // 
-            this.SavePassiveElementButton.Location = new System.Drawing.Point(293, 418);
+            this.SavePassiveElementButton.Location = new System.Drawing.Point(217, 302);
+            this.SavePassiveElementButton.Margin = new System.Windows.Forms.Padding(2);
             this.SavePassiveElementButton.Name = "SavePassiveElementButton";
-            this.SavePassiveElementButton.Size = new System.Drawing.Size(144, 29);
+            this.SavePassiveElementButton.Size = new System.Drawing.Size(108, 24);
             this.SavePassiveElementButton.TabIndex = 3;
             this.SavePassiveElementButton.Text = "Сохранить";
             this.SavePassiveElementButton.UseVisualStyleBackColor = true;
@@ -93,9 +94,10 @@
             // 
             // LoadPassiveElementButton
             // 
-            this.LoadPassiveElementButton.Location = new System.Drawing.Point(443, 418);
+            this.LoadPassiveElementButton.Location = new System.Drawing.Point(329, 302);
+            this.LoadPassiveElementButton.Margin = new System.Windows.Forms.Padding(2);
             this.LoadPassiveElementButton.Name = "LoadPassiveElementButton";
-            this.LoadPassiveElementButton.Size = new System.Drawing.Size(144, 29);
+            this.LoadPassiveElementButton.Size = new System.Drawing.Size(108, 24);
             this.LoadPassiveElementButton.TabIndex = 4;
             this.LoadPassiveElementButton.Text = "Загрузить";
             this.LoadPassiveElementButton.UseVisualStyleBackColor = true;
@@ -103,9 +105,10 @@
             // 
             // SearchPassiveElementButton
             // 
-            this.SearchPassiveElementButton.Location = new System.Drawing.Point(677, 339);
+            this.SearchPassiveElementButton.Location = new System.Drawing.Point(460, 271);
+            this.SearchPassiveElementButton.Margin = new System.Windows.Forms.Padding(2);
             this.SearchPassiveElementButton.Name = "SearchPassiveElementButton";
-            this.SearchPassiveElementButton.Size = new System.Drawing.Size(86, 29);
+            this.SearchPassiveElementButton.Size = new System.Drawing.Size(56, 24);
             this.SearchPassiveElementButton.TabIndex = 5;
             this.SearchPassiveElementButton.Text = "Поиск";
             this.SearchPassiveElementButton.UseVisualStyleBackColor = true;
@@ -113,36 +116,42 @@
             // 
             // GetRandomPassiveElementButton
             // 
-            this.GetRandomPassiveElementButton.Location = new System.Drawing.Point(593, 418);
+            this.GetRandomPassiveElementButton.Location = new System.Drawing.Point(442, 302);
+            this.GetRandomPassiveElementButton.Margin = new System.Windows.Forms.Padding(2);
             this.GetRandomPassiveElementButton.Name = "GetRandomPassiveElementButton";
-            this.GetRandomPassiveElementButton.Size = new System.Drawing.Size(170, 29);
+            this.GetRandomPassiveElementButton.Size = new System.Drawing.Size(128, 24);
             this.GetRandomPassiveElementButton.TabIndex = 6;
             this.GetRandomPassiveElementButton.Text = "Рандомный элемент";
             this.GetRandomPassiveElementButton.UseVisualStyleBackColor = true;
             this.GetRandomPassiveElementButton.Click += new System.EventHandler(this.GetRandomPassiveElementButton_Click);
             // 
-            // realPartSearchTextBox
+            // searchTextBox
             // 
-            this.realPartSearchTextBox.Location = new System.Drawing.Point(574, 339);
-            this.realPartSearchTextBox.Name = "realPartSearchTextBox";
-            this.realPartSearchTextBox.Size = new System.Drawing.Size(89, 22);
-            this.realPartSearchTextBox.TabIndex = 8;
+            this.searchTextBox.Location = new System.Drawing.Point(406, 274);
+            this.searchTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(50, 20);
+            this.searchTextBox.TabIndex = 8;
+            this.searchTextBox.Visible = false;
             // 
-            // label2
+            // nameOfResistance
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(274, 339);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(163, 17);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Действительная часть:";
+            this.nameOfResistance.AutoSize = true;
+            this.nameOfResistance.Location = new System.Drawing.Point(181, 275);
+            this.nameOfResistance.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.nameOfResistance.Name = "nameOfResistance";
+            this.nameOfResistance.Size = new System.Drawing.Size(92, 26);
+            this.nameOfResistance.TabIndex = 10;
+            this.nameOfResistance.Text = "Действительная\r\nчасть:";
+            this.nameOfResistance.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 361);
+            this.label1.Location = new System.Drawing.Point(3, 276);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 17);
+            this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 9;
             this.label1.Text = "Вид элемента";
             // 
@@ -154,75 +163,50 @@
             "Индуктивность",
             "Конденсатор",
             "Резистор"});
-            this.TypesOfPassiveElementsComboBox.Location = new System.Drawing.Point(126, 356);
+            this.TypesOfPassiveElementsComboBox.Location = new System.Drawing.Point(85, 272);
+            this.TypesOfPassiveElementsComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.TypesOfPassiveElementsComboBox.Name = "TypesOfPassiveElementsComboBox";
-            this.TypesOfPassiveElementsComboBox.Size = new System.Drawing.Size(121, 24);
+            this.TypesOfPassiveElementsComboBox.Size = new System.Drawing.Size(92, 21);
             this.TypesOfPassiveElementsComboBox.TabIndex = 11;
+            this.TypesOfPassiveElementsComboBox.SelectedIndexChanged += new System.EventHandler(this.TypesOfPassiveElementsComboBox_SelectedIndexChanged);
             // 
             // DeleteSearchButton
             // 
-            this.DeleteSearchButton.Location = new System.Drawing.Point(677, 374);
+            this.DeleteSearchButton.Location = new System.Drawing.Point(520, 271);
+            this.DeleteSearchButton.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteSearchButton.Name = "DeleteSearchButton";
-            this.DeleteSearchButton.Size = new System.Drawing.Size(86, 29);
+            this.DeleteSearchButton.Size = new System.Drawing.Size(52, 24);
             this.DeleteSearchButton.TabIndex = 12;
-            this.DeleteSearchButton.Text = "Сбросить";
+            this.DeleteSearchButton.Text = "Сброс";
             this.DeleteSearchButton.UseVisualStyleBackColor = true;
             this.DeleteSearchButton.Click += new System.EventHandler(this.DeleteSearchButton_Click);
             // 
-            // label3
+            // searchComboBox
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(274, 380);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 17);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Мнимая часть:";
-            // 
-            // imaginaryPartSearchTextBox
-            // 
-            this.imaginaryPartSearchTextBox.Location = new System.Drawing.Point(573, 377);
-            this.imaginaryPartSearchTextBox.Name = "imaginaryPartSearchTextBox";
-            this.imaginaryPartSearchTextBox.Size = new System.Drawing.Size(89, 22);
-            this.imaginaryPartSearchTextBox.TabIndex = 14;
-            // 
-            // realPartSearchComboBox
-            // 
-            this.realPartSearchComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.realPartSearchComboBox.FormattingEnabled = true;
-            this.realPartSearchComboBox.Items.AddRange(new object[] {
+            this.searchComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.searchComboBox.FormattingEnabled = true;
+            this.searchComboBox.Items.AddRange(new object[] {
             "Больше или равно",
             "Меньше или равно"});
-            this.realPartSearchComboBox.Location = new System.Drawing.Point(444, 339);
-            this.realPartSearchComboBox.Name = "realPartSearchComboBox";
-            this.realPartSearchComboBox.Size = new System.Drawing.Size(120, 24);
-            this.realPartSearchComboBox.TabIndex = 15;
-            // 
-            // imaginaryPartSearchComboBox
-            // 
-            this.imaginaryPartSearchComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.imaginaryPartSearchComboBox.FormattingEnabled = true;
-            this.imaginaryPartSearchComboBox.Items.AddRange(new object[] {
-            "Больше или равно",
-            "Меньше или равно"});
-            this.imaginaryPartSearchComboBox.Location = new System.Drawing.Point(443, 377);
-            this.imaginaryPartSearchComboBox.Name = "imaginaryPartSearchComboBox";
-            this.imaginaryPartSearchComboBox.Size = new System.Drawing.Size(119, 24);
-            this.imaginaryPartSearchComboBox.TabIndex = 16;
+            this.searchComboBox.Location = new System.Drawing.Point(277, 273);
+            this.searchComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.searchComboBox.Name = "searchComboBox";
+            this.searchComboBox.Size = new System.Drawing.Size(125, 21);
+            this.searchComboBox.TabIndex = 15;
+            this.searchComboBox.Visible = false;
+            this.searchComboBox.SelectedIndexChanged += new System.EventHandler(this.searchComboBox_SelectedIndexChanged);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(775, 460);
-            this.Controls.Add(this.imaginaryPartSearchComboBox);
-            this.Controls.Add(this.realPartSearchComboBox);
-            this.Controls.Add(this.imaginaryPartSearchTextBox);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(581, 333);
+            this.Controls.Add(this.searchComboBox);
             this.Controls.Add(this.DeleteSearchButton);
             this.Controls.Add(this.TypesOfPassiveElementsComboBox);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.nameOfResistance);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.realPartSearchTextBox);
+            this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.GetRandomPassiveElementButton);
             this.Controls.Add(this.SearchPassiveElementButton);
             this.Controls.Add(this.LoadPassiveElementButton);
@@ -231,6 +215,7 @@
             this.Controls.Add(this.AddPassiveElementButton);
             this.Controls.Add(this.dataPassiveElementView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
@@ -252,15 +237,12 @@
         private System.Windows.Forms.Button LoadPassiveElementButton;
         private System.Windows.Forms.Button SearchPassiveElementButton;
         private System.Windows.Forms.Button GetRandomPassiveElementButton;
-        private System.Windows.Forms.TextBox realPartSearchTextBox;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.Label nameOfResistance;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox TypesOfPassiveElementsComboBox;
         private System.Windows.Forms.Button DeleteSearchButton;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox imaginaryPartSearchTextBox;
-        private System.Windows.Forms.ComboBox realPartSearchComboBox;
-        private System.Windows.Forms.ComboBox imaginaryPartSearchComboBox;
+        private System.Windows.Forms.ComboBox searchComboBox;
     }
 }
 

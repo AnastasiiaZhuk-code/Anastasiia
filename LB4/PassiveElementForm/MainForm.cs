@@ -197,23 +197,22 @@ namespace PassiveElementForm
         /// <param name="e"></param>
         private void SearchPassiveElementButton_Click(object sender, EventArgs e)
         {
-            Search();
+            if (TypesOfPassiveElementsComboBox.SelectedIndex != -1)
+            {
+                Search();
 
-            //AddPassiveElementButton.Enabled = true;
-            //AddPassiveElementButton.Visible = false;
-            //DeletePassiveElementButton.Enabled = true;
-            //DeletePassiveElementButton.Visible = false;
-            //LoadPassiveElementButton.Enabled = true;
-            //LoadPassiveElementButton.Visible = false;
-            //SavePassiveElementButton.Enabled = true;
-            //SavePassiveElementButton.Visible = false;
-            //GetRandomPassiveElementButton.Enabled = true;
-            //GetRandomPassiveElementButton.Visible = false;
-            DeleteSearchButton.Visible = true;
-
-            //DeletePassiveElementButton.Enabled = true;
-            //DeletePassiveElementButton.Visible = true;
-
+                AddPassiveElementButton.Visible = false;
+                DeletePassiveElementButton.Visible = false;
+                LoadPassiveElementButton.Visible = false;
+                SavePassiveElementButton.Visible = false;
+                GetRandomPassiveElementButton.Visible = false;
+                DeleteSearchButton.Visible = true;
+                DeletePassiveElementButton.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Выберите тип элемента для начала поиска.");
+            }
         }
 
         /// <summary>
@@ -223,64 +222,93 @@ namespace PassiveElementForm
         {   
             _passiveElementsSearch.Clear();
 
-            CreateView(
-                _passiveElementsSearch, dataPassiveElementView);
+            CreateView(_passiveElementsSearch, dataPassiveElementView);
 
             try
             {
-            if (TypesOfPassiveElementsComboBox.SelectedIndex != -1 &&
-                string.IsNullOrEmpty(realPartSearchTextBox.Text) &&
-                string.IsNullOrEmpty(imaginaryPartSearchTextBox.Text))
-            {
-                foreach (var row in _passiveElements)
+                if (TypesOfPassiveElementsComboBox.SelectedIndex != -1 &&
+                    string.IsNullOrEmpty(searchTextBox.Text))
                 {
-                    if (row.PassiveElementType == 
-                        TypesOfPassiveElementsComboBox.SelectedItem.
-                        ToString())
+                    foreach (var row in _passiveElements)
                     {
-                        _passiveElementsSearch.Add(row);
+                        if (row.PassiveElementType == 
+                            TypesOfPassiveElementsComboBox.SelectedItem.
+                            ToString())
+                        {
+                            _passiveElementsSearch.Add(row);
+                        }
                     }
                 }
-            }
-            else if (!string.IsNullOrEmpty(realPartSearchTextBox.Text) &&
-                TypesOfPassiveElementsComboBox.SelectedIndex != -1 &&
-                realPartSearchComboBox.SelectedIndex != -1)
-            {
-                 foreach (var row in _passiveElements)
-                 {
-                    double realPart;
-                    realPart = ReadingAndParsing.ReadAndParse(realPartSearchTextBox.Text, 
-                        "Действительное сопротивление", out realPart);
 
-                     if (row.ComplexResistance.Real == realPart && 
-                        row.PassiveElementType ==
-                        TypesOfPassiveElementsComboBox.SelectedItem.
-                        ToString())
-                     {
-                            _passiveElementsSearch.Add(row);
-                     }
-                 }
-            }
-            else if (!string.IsNullOrEmpty(imaginaryPartSearchTextBox.Text) &&
-                   TypesOfPassiveElementsComboBox.SelectedIndex != -1 &&
-                   imaginaryPartSearchComboBox.SelectedIndex != -1)
-            {
-                 foreach (var row in _passiveElements)
-                 {
-                     if (row.ComplexResistance.Imaginary.ToString() == 
-                         imaginaryPartSearchTextBox.Text &&
-                         row.PassiveElementType ==
-                         TypesOfPassiveElementsComboBox.
-                         SelectedItem.ToString())
-                     {
-                             _passiveElementsSearch.Add(row);
-                     }
-                 }
-            }
-            else if(!_passiveElementsSearch.Any())
-            {
-                   MessageBox.Show("Ничего не найдено!");
-            }
+                else if (!string.IsNullOrEmpty(searchTextBox.Text))
+                {
+                    if (TypesOfPassiveElementsComboBox.SelectedIndex == 2)
+                    {
+                        foreach (var row in _passiveElements)
+                        {
+                            double partOfEmpidence;
+                            partOfEmpidence = ReadingAndParsing.ReadAndParse(
+                                searchTextBox.Text,
+                                "Действительное сопротивление", out partOfEmpidence);
+
+                            if (searchComboBox.SelectedIndex == 0)
+                            {
+                                if (row.ComplexResistance.Real >= partOfEmpidence &&
+                                    row.PassiveElementType ==
+                                    TypesOfPassiveElementsComboBox.SelectedItem.
+                                    ToString())
+                                {
+                                    _passiveElementsSearch.Add(row);
+                                }
+                            }
+                            else
+                            {
+                                if (row.ComplexResistance.Real <= partOfEmpidence &&
+                                    row.PassiveElementType ==
+                                    TypesOfPassiveElementsComboBox.SelectedItem.
+                                    ToString())
+                                {
+                                    _passiveElementsSearch.Add(row);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (var row in _passiveElements)
+                        {
+                            double partOfEmpidence;
+                            partOfEmpidence = ReadingAndParsing.ReadAndParse(
+                                searchTextBox.Text,
+                                "Действительное сопротивление", out partOfEmpidence);
+
+                            if (searchComboBox.SelectedIndex == 0)
+                            {
+                                if (row.ComplexResistance.Imaginary >= partOfEmpidence &&
+                                    row.PassiveElementType ==
+                                    TypesOfPassiveElementsComboBox.SelectedItem.
+                                    ToString())
+                                {
+                                    _passiveElementsSearch.Add(row);
+                                }
+                            }
+                            else
+                            {
+                                if (row.ComplexResistance.Imaginary <= partOfEmpidence &&
+                                    row.PassiveElementType ==
+                                    TypesOfPassiveElementsComboBox.SelectedItem.
+                                    ToString())
+                                {
+                                    _passiveElementsSearch.Add(row);
+                                }
+                            }
+                        }
+                    }
+                }
+                else if(!_passiveElementsSearch.Any())
+                {
+                       MessageBox.Show("Ничего не найдено!");
+                }
             }
             catch(Exception exception)
             {
@@ -309,8 +337,38 @@ namespace PassiveElementForm
             GetRandomPassiveElementButton.Enabled = true;
             GetRandomPassiveElementButton.Visible = true;
             DeleteSearchButton.Visible = false;
+            nameOfResistance.Visible = false;
+            searchComboBox.Visible = false;
+            searchTextBox.Visible = false;
+            searchTextBox.Text = "";
+            TypesOfPassiveElementsComboBox.SelectedIndex = -1;
+            nameOfResistance.Visible = false;
+            searchComboBox.Visible = false;
 
             
+        }
+
+        private void TypesOfPassiveElementsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            nameOfResistance.Visible = true;
+            searchComboBox.Visible = true;
+
+            if (TypesOfPassiveElementsComboBox.SelectedIndex == 0 ||
+                TypesOfPassiveElementsComboBox.SelectedIndex == 1)
+            {
+                nameOfResistance.Text = "Мнимая часть:";
+            }
+            
+            if (TypesOfPassiveElementsComboBox.SelectedIndex == 2)
+            {
+                nameOfResistance.Text = "Действительная \nчасть:";
+            }
+
+        }
+
+        private void searchComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            searchTextBox.Visible = true;
         }
     }
 }

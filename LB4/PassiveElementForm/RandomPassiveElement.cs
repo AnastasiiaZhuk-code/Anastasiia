@@ -32,10 +32,10 @@ namespace PassiveElementForm
                 passiveElement = new Capacitor();
 
                 (passiveElement as Capacitor).Сapacity =
-                    Convert.ToDouble(_random.Next(0, 10000));
+                    Convert.ToDouble(_random.Next(1, 100));
 
                 (passiveElement as Capacitor).Frecuency =
-                    Convert.ToDouble(_random.Next(0, 10000));
+                    Convert.ToDouble(_random.Next(1, 10));
             }
 
             if (typePassiveElement == 1)
@@ -43,7 +43,7 @@ namespace PassiveElementForm
                 passiveElement = new Resistor();
 
                 (passiveElement as Resistor).Resistance = 
-                    Convert.ToDouble(_random.Next(0, 10000));
+                    Convert.ToDouble(_random.Next(1, 100));
             }
 
             if (typePassiveElement == 2)
@@ -51,10 +51,10 @@ namespace PassiveElementForm
                 passiveElement = new Inductor();
 
                 (passiveElement as Inductor).Inductance =
-                    Convert.ToDouble(_random.Next(0, 10000));
+                    Convert.ToDouble(_random.Next(1, 100));
 
                 (passiveElement as Inductor).Frecuency =
-                    Convert.ToDouble(_random.Next(0, 10000));
+                    Convert.ToDouble(_random.Next(1, 10));
             }
 
             return passiveElement;

@@ -132,8 +132,8 @@ namespace PassiveElementForm
                         using (var fileStream = new FileStream(filePath,
                         FileMode.OpenOrCreate))
                         {
-                            var newPassiveElements = (BindingList<PassiveElementBase>)formatter.
-                                Deserialize(fileStream);
+                            var newPassiveElements = (BindingList<PassiveElementBase>)
+                                formatter.Deserialize(fileStream);
 
                             foreach (var passiveElement in newPassiveElements)
                             {
@@ -157,7 +157,8 @@ namespace PassiveElementForm
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void GetRandomPassiveElementButton_Click(object sender, EventArgs e)
+        private void GetRandomPassiveElementButton_Click(object sender,
+            EventArgs e)
         {
             _passiveElements.Add(RandomPassiveElement.GetRandomPassiveElement());
         }
@@ -173,7 +174,8 @@ namespace PassiveElementForm
             dataGridView.DataSource = passiveElements;
 
             dataGridView.Columns[0].HeaderText = "Вид пассивного элемента";
-            dataGridView.Columns[1].HeaderText = "Комплексное сопротивление элемента";
+            dataGridView.Columns[1].HeaderText = "Комплексное сопротивление " +
+                "элемента";
 
             dataGridView.AutoSizeColumnsMode =
                DataGridViewAutoSizeColumnsMode.Fill;
@@ -383,7 +385,8 @@ namespace PassiveElementForm
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void searchComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void searchComboBox_SelectedIndexChanged(
+            object sender, EventArgs e)
         {
             searchTextBox.Visible = true;
         }

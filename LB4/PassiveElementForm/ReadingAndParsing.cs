@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace PassiveElementForm
 {
     /// <summary>
-    /// 
+    /// Считывание и перевод в double
     /// </summary>
     public static class ReadingAndParsing
     {

@@ -249,24 +249,27 @@ namespace PassiveElementForm
                             double partOfEmpidence;
                             partOfEmpidence = ReadingAndParsing.ReadAndParse(
                                 searchTextBox.Text,
-                                "Действительное сопротивление", out partOfEmpidence);
+                                "Действительное сопротивление", 
+                                out partOfEmpidence);
 
                             if (searchComboBox.SelectedIndex == 0)
                             {
-                                if (row.ComplexResistance.Real >= partOfEmpidence &&
+                                if (row.ComplexResistance.Real >= 
+                                    partOfEmpidence &&
                                     row.PassiveElementType ==
-                                    TypesOfPassiveElementsComboBox.SelectedItem.
-                                    ToString())
+                                    TypesOfPassiveElementsComboBox.
+                                    SelectedItem.ToString())
                                 {
                                     _passiveElementsSearch.Add(row);
                                 }
                             }
                             else
                             {
-                                if (row.ComplexResistance.Real <= partOfEmpidence &&
+                                if (row.ComplexResistance.Real <= 
+                                    partOfEmpidence &&
                                     row.PassiveElementType ==
-                                    TypesOfPassiveElementsComboBox.SelectedItem.
-                                    ToString())
+                                    TypesOfPassiveElementsComboBox.
+                                    SelectedItem.ToString())
                                 {
                                     _passiveElementsSearch.Add(row);
                                 }
@@ -280,11 +283,13 @@ namespace PassiveElementForm
                             double partOfEmpidence;
                             partOfEmpidence = ReadingAndParsing.ReadAndParse(
                                 searchTextBox.Text,
-                                "Действительное сопротивление", out partOfEmpidence);
+                                "Мнимое сопротивление", 
+                                out partOfEmpidence);
 
                             if (searchComboBox.SelectedIndex == 0)
                             {
-                                if (row.ComplexResistance.Imaginary >= partOfEmpidence &&
+                                if (row.ComplexResistance.Imaginary >= 
+                                    partOfEmpidence &&
                                     row.PassiveElementType ==
                                     TypesOfPassiveElementsComboBox.SelectedItem.
                                     ToString())
@@ -294,7 +299,8 @@ namespace PassiveElementForm
                             }
                             else
                             {
-                                if (row.ComplexResistance.Imaginary <= partOfEmpidence &&
+                                if (row.ComplexResistance.Imaginary <= 
+                                    partOfEmpidence &&
                                     row.PassiveElementType ==
                                     TypesOfPassiveElementsComboBox.SelectedItem.
                                     ToString())
@@ -348,7 +354,13 @@ namespace PassiveElementForm
             
         }
 
-        private void TypesOfPassiveElementsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Событие при выборе элемента в комбобоксе
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TypesOfPassiveElementsComboBox_SelectedIndexChanged(
+            object sender, EventArgs e)
         {
             nameOfResistance.Visible = true;
             searchComboBox.Visible = true;
@@ -366,6 +378,11 @@ namespace PassiveElementForm
 
         }
 
+        /// <summary>
+        /// Собыие при выборе знака в комбобоксе
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void searchComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             searchTextBox.Visible = true;

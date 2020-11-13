@@ -18,7 +18,7 @@ namespace PassiveElementForm
         private static Random _random = new Random();
 
         /// <summary>
-        /// Создание случайной пассивного элемента 
+        /// Создание случайного пассивного элемента 
         /// </summary>
         /// <returns>Ексемпляр пассивного элемента</returns>
         public static PassiveElementBase GetRandomPassiveElement()

@@ -29,29 +29,27 @@ namespace PassiveElementForm
             {
                 case 0:
                 {
-                    var passiveElement = new Capacitor();
-                    passiveElement.Сapacity =
-                    Convert.ToDouble(_random.Next(1, 100));
-                    passiveElement.Frecuency =
-                    Convert.ToDouble(_random.Next(1, 10));
-                    return passiveElement;
+                    return new Capacitor
+                    {
+                        Сapacity = Convert.ToDouble(_random.Next(1, 100)),
+                        Frecuency = Convert.ToDouble(_random.Next(1, 10))
+                    };
                 }
                 case 1:
                 {
-                    var passiveElement = new Resistor();
-                    passiveElement.Resistance = 
-                    Convert.ToDouble(_random.Next(1, 100));
-                    return passiveElement;
+                    return new Resistor
+                    {
+                        Resistance = Convert.ToDouble(_random.Next(1, 100))
+                    };
                 }
                 case 2:
                 {
-                    var passiveElement = new Inductor();
-                    passiveElement.Inductance =
-                    Convert.ToDouble(_random.Next(1, 100));
-                    passiveElement.Frecuency = Convert.ToDouble(
-                        _random.Next(1, 10));
-                    return passiveElement;
-                    }
+                    return new Inductor
+                    {
+                        Inductance = Convert.ToDouble(_random.Next(1, 100)),
+                        Frecuency = Convert.ToDouble(_random.Next(1, 10))
+                    };
+                }
                 default:
                 {
                     throw new ArgumentException("Нет такого элемента!");
